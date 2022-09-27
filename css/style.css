@@ -1,0 +1,10 @@
+.link-right{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.table{
+    border-radius: 15px;
+    box-shadow: rgba(0 , 0 , 0, 0.2);
+}

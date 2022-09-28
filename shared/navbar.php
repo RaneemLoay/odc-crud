@@ -1,7 +1,8 @@
 <?php 
-if($_SESSION("userName")==null)
+if(!isset($_SESSION['userName']))
 {
-  header("location : /odc-crud/login.php");
+  //header_remove();
+  header("location: ../auth/login.php");
   exit;
 }
 ?>
@@ -15,7 +16,7 @@ if($_SESSION("userName")==null)
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="/Projects/odc-crud/index.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/ODC/odc-crud/index.php">Home <span class="sr-only">(current)</span></a>
 
 
 
@@ -24,14 +25,10 @@ if($_SESSION("userName")==null)
           Branches
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/Projects/odc-crud/branches/insert.php">Insert new branch</a>
-          <?php
-          //  if(!isset($_SESSION['adminid'])) {
-             ?>
-          <a class="dropdown-item" href="/Projects/odc-crud/branches/list.php"> Show branches</a>
-          <?php 
-        // }
-         ?>
+          <a class="dropdown-item" href="/ODC/odc-crud/branches/insert.php">Insert new branch</a>
+
+          <a class="dropdown-item" href="/ODC/odc-crud/branches/list.php"> Show branches</a>
+
         </div>
       </li>
 
@@ -41,14 +38,10 @@ if($_SESSION("userName")==null)
           Courses
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/Projects/odc-crud/courses/insert.php">Insert New Course</a>
-          <?php 
-          // if(!isset($_SESSION['adminid'])) { 
-            ?>
-          <a class="dropdown-item" href="/Projects/odc-crud/courses/list.php"> Show Courses</a>
-          <?php
-        //  } 
-         ?>
+          <a class="dropdown-item" href="/ODC/odc-crud/courses/insert.php">Insert New Course</a>
+
+          <a class="dropdown-item" href="/ODC/odc-crud/courses/list.php"> Show Courses</a>
+
         </div>
       </li>
 
@@ -57,15 +50,11 @@ if($_SESSION("userName")==null)
           Students
         </a>
         <div class="dropdown-menu">
-        <?php
-        //  if(isset($_SESSION['adminid'])) { 
-          ?>
-          <a class="dropdown-item" href="/Projects/odc-crud/student/createStudent.php">Insert new student</a>
-          <?php 
-        // }
-         ?>
-          <a class="dropdown-item" href="/Projects/odc-crud/student/ListStudent.php"> Show students</a>
-          <a class="dropdown-item" href="/Projects/odc-crud/student/registered.php"> Show Registered</a>
+
+          <a class="dropdown-item" href="/ODC/odc-crud/student/createStudent.php">Insert new student</a>
+
+          <a class="dropdown-item" href="/ODC/odc-crud/student/ListStudent.php"> Show students</a>
+          <a class="dropdown-item" href="/ODC/odc-crud/student/registered.php"> Show Registered</a>
 
         </div>
       </li>
@@ -79,7 +68,7 @@ if($_SESSION("userName")==null)
           Admin
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/Projects/odc-crud/admin/createAdmin.php">Add new Admin</a>
+          <a class="dropdown-item" href="/ODC/odc-crud/admin/createAdmin.php">Add new Admin</a>
         </div>
       </li>
       <?php 
@@ -89,10 +78,10 @@ if($_SESSION("userName")==null)
 
 <li class="nav-item active">
         <?php if(isset($_SESSION['userName'])) { ?>
-          <a class="nav-link btn btn-danger mr-5" href="/Projects/odc-crud/auth/logout.php" >logout <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-danger mr-5" href="/ODC/odc-crud/auth/logout.php" >logout <span class="sr-only">(current)</span></a>
 
         <?php  } else { ?>
-          <a class="nav-link btn btn-success" href="/Projects/odc-crud/auth/login.php"> login <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-success" href="/ODC/odc-crud/auth/login.php"> login <span class="sr-only">(current)</span></a>
           <?php  } ?>
     </ul>
   </div>

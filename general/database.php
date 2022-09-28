@@ -64,59 +64,7 @@ header("location: list.php");
 
 }
 
-if(isset($_POST['update-dep-btn'])){
 
-    $depname = $_POST['name'];
-
-   //update
-   $updatedep = "UPDATE `departments` SET name='$depname' WHERE `id` = $updatedepid  ";
-   $updatedepdata = mysqli_query($connection,$updatedep);
-
-
-   header('Location: list.php');
-}
-
-
-
-
-
-
-// Admin 
-
-//log in select
-if(isset($_POST['log-in-btn'])){    
-    
-    $adminpass = $_POST['pass'];
-    $adminid = $_POST['id'];
-    
-$select = "SELECT * from `admins` where `id` = $adminid";
-         $adminselect = mysqli_query($connection,$select);
-         $rows =  mysqli_num_rows($adminselect);
-
-         if($rows >0){
-         $_SESSION['adminid'] = $adminid ;
-         header('Location: /ODC/06/index.php');
-          }
-          else{
-            session_unset();
-            session_destroy();
-            header('Location: /ODC/06/index.php');
-          }
-   
-        }
-
-//add admin insert
-if(isset($_POST['add-admin-btn'])){
-            $adminid= $_POST['id'];
-            $adminpass= $_POST['pass'];
-        
-        
-        //insert
-        $addadmin = "INSERT INTO `admins` values('$adminid','$adminpass',null)";
-        $addadmindata = mysqli_query($connection,$addadmin);
-        
-        
-}
 
 
 
@@ -129,7 +77,7 @@ if(isset($_POST['edit-branch-btn'])){
    //update
    $updatebranch = "UPDATE `branches` SET `name`='$name' WHERE `id` = $updateid  ";
    $updatebranchdata = mysqli_query($connection,$updatebranch);
-   header('Location: /Projects/odc-crud/branches/list.php');
+   header('Location: /ODC/odc-crud/branches/list.php');
 
 }
 
@@ -143,7 +91,7 @@ if(isset($_POST['edit-course-btn'])){
    //update
    $updatecourse = "UPDATE `courses` SET `name`='$name' WHERE `id` = $updateid  ";
    $updatecoursedata = mysqli_query($connection,$updatecourse);
-   header('Location: /Projects/odc-crud/courses/list.php');
+   header('Location: /ODC/odc-crud/courses/list.php');
 
 }
 
